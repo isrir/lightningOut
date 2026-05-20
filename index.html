@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
+
+  <!-- 1. Lightning Out dependencies -->
+  <script src="https://creationtechnology4.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 </head>
 <body>
 
-  <label for="program">Learning Program</label>
-  <select id="program">
-    <option value="">Loading...</option>
-  </select>
+  <!-- 2. One EMPTY div — Lightning mounts here -->
+  <div id="lightning-container"></div>
 
   <script>
-    fetch('https://creationtechnology4.my.salesforce-sites.com/services/apexrest/learning-programs/')
-      .then(res => res.json())
-      .then(data => {
-        const el = document.getElementById('program');
-        el.innerHTML = '<option value="">-- Select a Program --</option>';
-        data.forEach(p => {
-          const o = document.createElement('option');
-          o.value = p.Id;
-          o.textContent = p.Name;
-          el.appendChild(o);
-        });
-      })
-      .catch(() => {
-        document.getElementById('program').innerHTML = 
-          '<option value="">Failed to load</option>';
-      });
+    $Lightning.use(
+      "c:learningProgramOutApp",   // your aura:application name
+      function () {
+        $Lightning.createComponent(
+          "c:learningProgramForm",  // your component
+          {},                        // attributes
+          "lightning-container",     // target div ID (must be EMPTY)
+          function (cmp) {
+            console.log("Component created", cmp);
+          }
+        );
+      },
+      "https://creationtechnology4.my.salesforce-sites.com"  // Salesforce site URL
+    );
   </script>
 
 </body>
