@@ -23,12 +23,12 @@
         programs.forEach(p => {
           const opt = document.createElement("option");
           opt.value = p.Id;
-          opt.textContent = p.Name;  // only Name is shown
+          opt.textContent = p.Name;
           dropdown.appendChild(opt);
         });
       })
       .catch(err => {
-        document.getElementById("program").innerHTML = 
+        document.getElementById("program").innerHTML =
           '<option value="">Failed to load</option>';
         console.error(err);
       });
