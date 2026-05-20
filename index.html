@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enquiry Form</title>
+</head>
+<body>
+
+  <label for="program">Learning Program</label>
+  <select id="program">
+    <option value="">Loading...</option>
+  </select>
+
+  <script>
+    const SF_URL = "https://creationtechnology4.my.salesforce-sites.com";
+
+    fetch(`${SF_URL}/services/apexrest/learning-programs/`)
+      .then(res => res.json())
+      .then(programs => {
+        const dropdown = document.getElementById("program");
+        dropdown.innerHTML = '<option value="">-- Select a Program --</option>';
+
+        programs.forEach(p => {
+          const opt = document.createElement("option");
+          opt.value = p.Id;
+          opt.textContent = p.Name;  // only Name is shown
+          dropdown.appendChild(opt);
+        });
+      })
+      .catch(err => {
+        document.getElementById("program").innerHTML = 
+          '<option value="">Failed to load</option>';
+        console.error(err);
+      });
+  </script>
+
+</body>
+</html>
