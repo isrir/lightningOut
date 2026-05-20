@@ -3,31 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
-
-  <!-- 1. Lightning Out dependencies -->
+  <link rel="icon" href="data:,">
   <script src="https://creationtechnology4.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 </head>
 <body>
-
-  <!-- 2. One EMPTY div — Lightning mounts here -->
-  <div id="lightning-container"></div>
+  <div id="container"></div>
 
   <script>
     $Lightning.use(
-      "c:learningPortalApp",   // your aura:application name
-      function () {
+      "c:learningProgramOutApp",
+      function() {
         $Lightning.createComponent(
-          "c:learningProgramForm",  // your component
-          {},                        // attributes
-          "lightning-container",     // target div ID (must be EMPTY)
-          function (cmp) {
-            console.log("Component created", cmp);
+          "c:learningProgramForm",
+          {},
+          "container",
+          function(cmp) {
+            console.log("Component ready:", cmp);
           }
         );
       },
-      "https://creationtechnology4.my.salesforce-sites.com"  // Salesforce site URL
+      "https://creationtechnology4.my.salesforce-sites.com"
     );
   </script>
-
 </body>
 </html>
