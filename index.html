@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
-  <style>
-    body { margin: 0; padding: 0; }
-    iframe { display: block; width: 100%; height: 100vh; border: none; }
-  </style>
+
+  <!-- Lightning Out Script -->
+  <script src="https://creationtechnology4.my.site.com/LearningPortal/lightning/lightning.out.js"></script>
+
 </head>
 <body>
 
-  <iframe
-    src="https://creationtechnology4.my.site.com/LearningPortal/s/enquiry"
-    title="Enquiry Form">
-  </iframe>
+  <div id="lwc-container"></div>
+
+  <script>
+    $Lightning.use("c:learningPortalApp", function() {
+      $Lightning.createComponent(
+        "c:learningProgramForm",
+        {},
+        "lwc-container",
+        function(cmp) {
+          console.log("Component loaded");
+        }
+      );
+    }, 
+    "https://creationtechnology4.my.site.com/LearningPortal"
+    );
+  </script>
 
 </body>
 </html>
