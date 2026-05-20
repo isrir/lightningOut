@@ -3,41 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+  </style>
 </head>
 <body>
 
-  <label for="program">Learning Program</label>
-  <select id="program">
-    <option value="">Loading...</option>
-  </select>
-
-  <script>
-    const SF_URL = "https://creationtechnology4.my.salesforce-sites.com";
-
-    fetch(`${SF_URL}/services/apexrest/learning-programs/`)
-      .then(res => {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
-      .then(programs => {
-        console.log("Programs received:", programs.length);
-
-        const dropdown = document.getElementById("program");
-        dropdown.innerHTML = '<option value="">-- Select a Program --</option>';
-
-        programs.forEach(p => {
-          const opt = document.createElement("option");
-          opt.value       = p.Id;
-          opt.textContent = p.Name;   // only Name shown
-          dropdown.appendChild(opt);
-        });
-      })
-      .catch(err => {
-        console.error("Error:", err);
-        document.getElementById("program").innerHTML =
-          '<option value="">Failed to load</option>';
-      });
-  </script>
+  <iframe
+    src="https://creationtechnology4.my.site.com/LearningPortal/enquiry"
+    title="Learning Programs Enquiry Form"
+    allowfullscreen>
+  </iframe>
 
 </body>
 </html>
