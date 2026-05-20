@@ -3,29 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
-
-  <!-- Lightning Out Script -->
-  <script src="https://creationtechnology4.my.site.com/LearningPortal/lightning/lightning.out.js"></script>
-
 </head>
 <body>
 
-  <div id="lwc-container"></div>
+ <script type="text/javascript" async="" src="https://creationtechnology4.my.salesforce.com/lightning/lightning.out.latest/index.iife.prod.js"></script>
 
-  <script>
-    $Lightning.use("c:learningPortalApp", function() {
-      $Lightning.createComponent(
-        "c:learningProgramForm",
-        {},
-        "lwc-container",
-        function(cmp) {
-          console.log("Component loaded");
-        }
-      );
-    }, 
-    "https://creationtechnology4.my.site.com/LearningPortal"
-    );
-  </script>
+<lightning-out-application app-id="1UsdN00000025ejSAA" components="c-learning-program-form"></lightning-out-application>
+<c-learning-program-form></c-learning-program-form>
 
 </body>
 </html>
