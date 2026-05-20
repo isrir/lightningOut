@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flow Form</title>
+  <title>Enquiry Form</title>
   <link rel="icon" href="data:,">
   <script src="https://creationtechnology4.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 </head>
@@ -14,11 +14,11 @@
       "c:learningProgramOutApp",
       function() {
         $Lightning.createComponent(
-          "lightning:flow",
+          "c:learningProgramForm",
           {},
           "container",
           function(cmp) {
-            cmp.startFlow("InquiriesFromLearningPrograms");
+            console.log("Component ready:", cmp);
           }
         );
       },
