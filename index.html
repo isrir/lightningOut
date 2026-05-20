@@ -6,18 +6,29 @@
 </head>
 <body>
 
-  <script 
-    type="text/javascript" 
-    async="" 
-    src="https://creationtechnology4.my.salesforce.com/lightning/lightning.out.latest/index.iife.prod.js">
+  <label for="program">Learning Program</label>
+  <select id="program">
+    <option value="">Loading...</option>
+  </select>
+
+  <script>
+    fetch('https://creationtechnology4.my.salesforce-sites.com/services/apexrest/learning-programs/')
+      .then(res => res.json())
+      .then(data => {
+        const el = document.getElementById('program');
+        el.innerHTML = '<option value="">-- Select a Program --</option>';
+        data.forEach(p => {
+          const o = document.createElement('option');
+          o.value = p.Id;
+          o.textContent = p.Name;
+          el.appendChild(o);
+        });
+      })
+      .catch(() => {
+        document.getElementById('program').innerHTML = 
+          '<option value="">Failed to load</option>';
+      });
   </script>
-
-  <lightning-out-application 
-    app-id="1UsdN00000025bVSAQ" 
-    components="c-learning-program-flow-embed">
-  </lightning-out-application>
-
-  <c-learning-program-flow-embed></c-learning-program-flow-embed>
 
 </body>
 </html>
