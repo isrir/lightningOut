@@ -4,20 +4,26 @@
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
   <link rel="icon" href="data:,">
-  <script
-    type="text/javascript"
-    async
-    src="https://creationtechnology4.my.salesforce.com/lightning/lightning.out.latest/index.iife.prod.js"
-  ></script>
+  <script src="https://creationtechnology4.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 </head>
 <body>
-  <lightning-out-application
-    app-id="1UsdN00000025rdSAA"
-    org-url="https://creationtechnology4.my.salesforce.com"
-    site-prefix="/LearningPortal"
-    components="c-learning-program-form"
-  ></lightning-out-application>
+  <div id="container"></div>
 
-  <c-learning-program-form></c-learning-program-form>
+  <script>
+    $Lightning.use(
+      "c:learningProgramOutApp",
+      function() {
+        $Lightning.createComponent(
+          "c:learningProgramForm",
+          {},
+          "container",
+          function(cmp) {
+            console.log("Component ready:", cmp);
+          }
+        );
+      },
+      "https://creationtechnology4.my.salesforce-sites.com"
+    );
+  </script>
 </body>
 </html>
