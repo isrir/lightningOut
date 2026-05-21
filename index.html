@@ -4,39 +4,35 @@
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
   <link rel="icon" href="data:,">
-  <!-- Lightning Out 2 script -->
-  <script src="https://creationtechnology4.my.salesforce.com/lightning/lightning.out.js"></script>
+
+  <!--
+    Lightning Out 2: Load the runtime script from YOUR Salesforce org.
+    This registers <lightning-out-application> and <c-*> as custom elements.
+  -->
+  <script
+    type="text/javascript"
+    async
+    src="https://creationtechnology4.my.salesforce.com/lightning/lightning.out.latest/index.iife.prod.js"
+  ></script>
 </head>
 <body>
-  <div id="container"></div>
 
-  <script>
-    // Lightning Out 2 initialization (Corrected)
-    document.addEventListener("DOMContentLoaded", function() {
-      // Check if LightningOut is available
-      if (typeof LightningOut === "undefined") {
-        console.error("LightningOut not loaded. Check script URL.");
-        return;
-      }
+  <!--
+    Step 1: Declare the Lightning Out 2 app container.
+    - app-id: your Lightning Out App record ID (starts with 1Us...)
+    - components: comma-separated list of LWC components to expose
+  -->
+  <lightning-out-application
+    app-id="1UsdN00000025rdSAA"
+    endpoint="https://creationtechnology4.my.salesforce.com"
+    components="c-learning-program-form"
+  ></lightning-out-application>
 
-      // Initialize Lightning Out
-      LightningOut.init({
-        appId: "1UsdN00000025rdSAA",
-        endpoint: "https://creationtechnology4.my.salesforce.com"
-      }).then(() => {
-        // Create component
-        return LightningOut.createComponent({
-          componentName: "c:learningProgramForm",
-          attributes: {}
-        });
-      }).then((component) => {
-        // Mount to container
-        component.mount("#container");
-        console.log("Component mounted successfully");
-      }).catch(error => {
-        console.error("Failed to load Lightning Out:", error);
-      });
-    });
-  </script>
+  <!--
+    Step 2: Use the component anywhere on the page.
+    It renders once <lightning-out-application> finishes bootstrapping.
+  -->
+  <c-learning-program-form></c-learning-program-form>
+
 </body>
 </html>
