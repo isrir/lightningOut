@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
   <link rel="icon" href="data:,">
-
-  <!--
-    Lightning Out 2: Load the runtime script from YOUR Salesforce org.
-    This registers <lightning-out-application> and <c-*> as custom elements.
-  -->
   <script
     type="text/javascript"
     async
@@ -16,22 +11,12 @@
   ></script>
 </head>
 <body>
-
-  <!--
-    Step 1: Declare the Lightning Out 2 app container.
-    - app-id: your Lightning Out App record ID (starts with 1Us...)
-    - components: comma-separated list of LWC components to expose
-  -->
   <lightning-out-application
     app-id="1UsdN00000025rdSAA"
-    endpoint="https://creationtechnology4.my.salesforce.com"
+    org-url="https://creationtechnology4.my.salesforce.com"
     components="c-learning-program-form"
   ></lightning-out-application>
 
-  <!--
-    Step 2: Use the component anywhere on the page.
-    It renders once <lightning-out-application> finishes bootstrapping.
-  -->
   <c-learning-program-form></c-learning-program-form>
 
 </body>
