@@ -3,27 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
-  <link rel="icon" href="data:,">
-  <script src="https://creationtechnology4.my.salesforce-sites.com/lightning/lightning.out.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    iframe { display: block; width: 100%; height: 100vh; border: none; }
+  </style>
 </head>
 <body>
-  <div id="container"></div>
 
-  <script>
-    $Lightning.use(
-      "c:learningProgramOutApp",
-      function() {
-        $Lightning.createComponent(
-          "c:learningProgramForm",
-          {},
-          "container",
-          function(cmp) {
-            console.log("Component ready:", cmp);
-          }
-        );
-      },
-      "https://creationtechnology4.my.salesforce-sites.com"
-    );
-  </script>
+  <iframe
+    src="https://creationtechnology4.my.site.com/LearningPortal/s/enquiry"
+    title="Enquiry Form">
+  </iframe>
+
 </body>
 </html>
