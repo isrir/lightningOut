@@ -4,35 +4,39 @@
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
   <link rel="icon" href="data:,">
-  <!-- Lightning Out 2 uses the new script -->
+  <!-- Lightning Out 2 script -->
   <script src="https://creationtechnology4.my.salesforce.com/lightning/lightning.out.js"></script>
 </head>
 <body>
   <div id="container"></div>
 
   <script>
-    // Lightning Out 2 initialization
-    (function() {
-      // Configure Lightning Out
-      LightningOverlay?.configure({
-        appId: "1UsdN00000025rdSAA",  // Your Lightning App ID
+    // Lightning Out 2 initialization (Corrected)
+    document.addEventListener("DOMContentLoaded", function() {
+      // Check if LightningOut is available
+      if (typeof LightningOut === "undefined") {
+        console.error("LightningOut not loaded. Check script URL.");
+        return;
+      }
+
+      // Initialize Lightning Out
+      LightningOut.init({
+        appId: "1UsdN00000025rdSAA",
         endpoint: "https://creationtechnology4.my.salesforce.com"
-      });
-      
-      // Load the app
-      LightningOverlay?.load().then(() => {
-        // Create component instance
-        const cmp = LightningOverlay?.createComponent("c:learningProgramForm", {});
-        
+      }).then(() => {
+        // Create component
+        return LightningOut.createComponent({
+          componentName: "c:learningProgramForm",
+          attributes: {}
+        });
+      }).then((component) => {
         // Mount to container
-        if (cmp) {
-          cmp.mount(document.getElementById("container"));
-          console.log("Component mounted successfully");
-        }
+        component.mount("#container");
+        console.log("Component mounted successfully");
       }).catch(error => {
         console.error("Failed to load Lightning Out:", error);
       });
-    })();
+    });
   </script>
 </body>
 </html>
