@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <title>Enquiry Form</title>
   <link rel="icon" href="data:,">
-  <script src="https://creationtechnology4.my.salesforce-sites.com/jslibrary/lightning/lightning.out.js"></script>
+  <script src="https://creationtechnology4.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 </head>
 <body>
   <div id="container"></div>
 
   <script>
-    // Use the correct endpoint for your Site
     $Lightning.use(
       "c:learningProgramOutApp",
       function() {
@@ -23,9 +22,7 @@
           }
         );
       },
-      "https://creationtechnology4.my.salesforce-sites.com",
-      // Add access token for guest user
-      "c"
+      "https://creationtechnology4.my.salesforce-sites.com"
     );
   </script>
 </body>
